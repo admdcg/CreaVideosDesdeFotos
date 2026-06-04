@@ -45,6 +45,7 @@ const photoFileInput = document.getElementById('photo-file-input');
 
 const btnSortName = document.getElementById('btn-sort-name');
 const btnReverseOrder = document.getElementById('btn-reverse-order');
+const btnClearAll = document.getElementById('btn-clear-all');
 
 const renderCanvas = document.getElementById('render-canvas');
 const bgAudio = document.getElementById('bg-audio');
@@ -212,6 +213,7 @@ function updateUIState() {
         btnGenerate.disabled = false;
         btnSortName.disabled = false;
         btnReverseOrder.disabled = false;
+        btnClearAll.disabled = false;
         renderPhotosGrid();
     } else {
         photosEmptyDropzone.classList.remove('hidden');
@@ -219,6 +221,7 @@ function updateUIState() {
         btnGenerate.disabled = true;
         btnSortName.disabled = true;
         btnReverseOrder.disabled = true;
+        btnClearAll.disabled = true;
     }
 }
 
@@ -343,6 +346,17 @@ function setupSortingActions() {
         renderPhotosGrid();
         showToast('Orden invertido', 'info');
     });
+    
+    btnClearAll.addEventListener('click', clearAllPhotos);
+}
+
+function clearAllPhotos() {
+    if (confirm('¿Estás seguro de que quieres eliminar todas las fotos cargadas?')) {
+        photoList.forEach(p => URL.revokeObjectURL(p.url));
+        photoList = [];
+        updateUIState();
+        showToast('Se eliminaron todas las fotos', 'info');
+    }
 }
 
 // Start rendering video slideshow in browser canvas
