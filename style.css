@@ -968,3 +968,17 @@ body {
         transform: translateY(0) scale(1);
     }
 }
+
+/* Footer style */
+.app-footer {
+    text-align: center;
+    padding: 1.5rem 0 0.5rem 0;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.app-footer p {
+    font-size: 0.75rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
