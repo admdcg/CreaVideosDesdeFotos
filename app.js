@@ -50,7 +50,7 @@ const renderCanvas = document.getElementById('render-canvas');
 const bgAudio = document.getElementById('bg-audio');
 
 // Default Music URL
-const DEFAULT_MUSIC_URL = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3";
+const DEFAULT_MUSIC_URL = "default_music.mp3";
 
 // Toast Helper
 function showToast(message, type = 'info') {
