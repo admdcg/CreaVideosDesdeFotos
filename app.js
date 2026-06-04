@@ -355,6 +355,12 @@ function clearAllPhotos() {
         photoList.forEach(p => URL.revokeObjectURL(p.url));
         photoList = [];
         updateUIState();
+        
+        // Hide result video card and reset player
+        resultVideoCard.classList.add('hidden');
+        resultVideoPlayer.pause();
+        resultVideoPlayer.src = '';
+        
         showToast('Se eliminaron todas las fotos', 'info');
     }
 }
